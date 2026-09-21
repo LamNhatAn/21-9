@@ -23,10 +23,11 @@ public class AuthController {
     @GetMapping("/examples") public String examples() { return "examples"; }
     @GetMapping("/register") public String register() { return "register"; }
     @PostMapping("/register") public String register(@RequestParam @NotBlank String username,
-            @RequestParam @Email @NotBlank String email, @RequestParam @Size(min=6) String password,
+            @RequestParam @Email @NotBlank String email, @RequestParam(required=false) String fullName,
+            @RequestParam @Size(min=6) String password,
             HttpSession session, Model model) {
         try {
-            UserAccount account = accounts.register(username, email, password);
+            UserAccount account = accounts.register(username, email, fullName, password);
             session.setAttribute("otpEmail", account.getEmail());
             model.addAttribute("notice", "OTP demo của bạn: " + account.getOtp());
             return "verify";

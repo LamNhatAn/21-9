@@ -28,10 +28,15 @@ public class AccountService implements UserDetailsService {
     }
     @Transactional
     public UserAccount register(String username, String email, String rawPassword) {
+        return register(username, email, null, rawPassword);
+    }
+    @Transactional
+    public UserAccount register(String username, String email, String fullName, String rawPassword) {
         if (repository.existsByUsernameIgnoreCaseOrEmailIgnoreCase(username, email))
             throw new IllegalArgumentException("Username hoặc email đã tồn tại");
         UserAccount account = new UserAccount(username.trim(), email.trim().toLowerCase(),
                 encoder.encode(rawPassword));
+        account.setFullName(fullName == null ? null : fullName.trim());
         issueOtp(account); return repository.save(account);
     }
     @Transactional public String issueOtp(UserAccount account) {

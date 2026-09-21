@@ -1,8 +1,5 @@
-<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Đăng nhập</title></head>
-<body><h1>Ví dụ 1 & 2: Đăng nhập</h1><p>Hỗ trợ username hoặc email.</p>
-<p th:if="${message}" th:text="${message}"></p><form th:action="@{/login}" method="post">
+<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Đăng nhập</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body class="auth-page"><main class="auth-card"><h1>Đăng nhập</h1><p class="error" th:if="${message}" th:text="${message}"></p><form th:action="@{/login}" method="post">
 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-<label>Username/email <input name="identifier" required autofocus></label><br>
-<label>Mật khẩu <input name="password" type="password" required></label><br><button>Đăng nhập</button></form>
-<a th:href="@{/register}">Đăng ký</a> | <a th:href="@{/forgot-password}">Quên mật khẩu</a> |
-<a th:href="@{/examples}">Xem các ví dụ</a></body></html>
+<label>Username<input name="identifier" required autofocus></label><label>Password<input name="password" type="password" required></label>
+<button class="primary">Đăng nhập</button></form><p><a th:href="@{/register}">Tạo tài khoản</a></p><p><a th:href="@{/forgot-password}">Quên mật khẩu?</a></p></main></body></html>
