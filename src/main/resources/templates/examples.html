@@ -1,21 +1,17 @@
-<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Các ví dụ Spring Security</title></head><body>
-<h1>Các ví dụ Spring Security</h1>
-<section>
+<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Các ví dụ Spring Security</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body class="admin-page">
+<nav class="navbar"><span class="brand">IOTSTAR SHOP</span><a th:href="@{/login}">Login</a><a th:href="@{/register}">Register</a><span class="spacer"></span><a th:href="@{/forgot-password}">Quên mật khẩu</a></nav>
+<main class="content"><h1>Các ví dụ Spring Security</h1><div class="example-grid"><section class="feature-card">
 <h2>Ví dụ 1: Đăng nhập bằng email</h2>
 <p>Đăng nhập bằng địa chỉ email và mật khẩu.</p>
 <a th:href="@{/login}">Mở đăng nhập</a>
-</section>
-<section>
+</section><section class="feature-card">
 <h2>Ví dụ 2: Đăng nhập bằng username hoặc email</h2>
 <p>Hệ thống hỗ trợ cả username và email, sau đó hiển thị thông tin tài khoản.</p>
 <a th:href="@{/login}">Đăng nhập</a>
-</section>
-<section>
+</section><section class="feature-card">
 <h2>Ví dụ 3: Đăng ký, OTP, bảo mật phiên và CRUD sản phẩm</h2>
 <p>Đăng ký tài khoản mới, xác thực OTP, quên mật khẩu và quản lý sản phẩm dành cho ADMIN.</p>
 <a th:href="@{/register}">Đăng ký + OTP</a> |
 <a th:href="@{/forgot-password}">Quên mật khẩu</a> |
 <a th:href="@{/admin/products}">CRUD sản phẩm (cần quyền ADMIN)</a>
-</section>
-<p><a th:href="@{/login}">Quay lại đăng nhập</a></p>
-</body></html>
+</section></div></main><footer>© 2026 IOTSTAR SHOP - Spring Boot</footer></body></html>
