@@ -1,0 +1,5 @@
+<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Đăng ký</title></head><body>
+<h1>Ví dụ 3: Đăng ký + OTP</h1><p th:if="${message}" th:text="${message}"></p>
+<form th:action="@{/register}" method="post"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+<input name="username" placeholder="Username" required><input name="email" type="email" placeholder="Email" required>
+<input name="password" type="password" minlength="6" placeholder="Mật khẩu" required><button>Đăng ký</button></form><a href="/login">Đăng nhập</a></body></html>
